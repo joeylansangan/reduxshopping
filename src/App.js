@@ -5,6 +5,7 @@ import './App.css';
 
 // // Pages
 import Home from './pages/Home';
+import Cart from './pages/Cart';
 
 // Components
 import Navbar from './components/Navbar/Navbar';
@@ -15,6 +16,7 @@ function App() {
       <div>
         <Navbar />
           <Route exact path="/" component={Home} />
+          <Route exact path="/cart" component={Cart} />
       </div>
     </Router>
   )

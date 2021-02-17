@@ -16,3 +16,27 @@ body {
 .card{
   margin: 30px 100px;
 }
+
+.collection{
+  display: flex;
+}
+
+.collection-item{
+  height: max-content;
+}
+
+.item-img{
+  height: inherit;
+}
+
+.cart-img{
+  height: 150px;
+}
+
+.qty{
+  font-size: xx-large;
+  font-weight: bolder;
+  color: black;
+  margin: 20px;
+  margin-left: 0;
+}

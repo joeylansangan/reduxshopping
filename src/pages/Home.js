@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import { addToCart } from '../components/actions/cartActions'
+
 class Home extends Component{
 
+    handleClick = (id)=>{
+        this.props.addToCart(id);
+        }
+        
     render(){
 
     let itemList = this.props.items.map(item=>{ 
@@ -13,7 +19,8 @@ class Home extends Component{
             <div className="card-image">
                 <img src={item.img} alt={item.title}/>
                 <span className="card-title">{item.title}</span>
-                <a class="waves-effect waves-light btn btn-floating halfway-fab">Add</a>
+                <a className="waves-effect waves-light btn btn-floating halfway-fab" onClick={()=>{this.handleClick(item.id)}}
+                >Add</a>
             </div>
             <div className="card-content">
                 <p>{item.desc}</p>
@@ -39,5 +46,11 @@ const mapStateToProps = (state)=>{
       items: state.items
     }
   }
+  
+const mapDispatchToProps= (dispatch)=>{
+    return{
+        addToCart: (id)=>{dispatch(addToCart(id))}
+    }
+}
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps,mapDispatchToProps)(Home)
